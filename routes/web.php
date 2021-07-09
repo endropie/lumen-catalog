@@ -10,11 +10,9 @@ $router->get('/', function () use ($router) {
 });
 
 $router->group(['prefix' => 'api'], function () use ($router) {
-
-
     $router->group(['middleware' => 'auth'], function () use ($router) {
         $router->get('/user', function () use ($router) {
-            dd('auth', auth()->user());
+            return auth()->user();
         });
     });
 });
